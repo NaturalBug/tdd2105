@@ -19,6 +19,10 @@ namespace Tennis
             {
                 return "Fifteen Love";
             }
+            else if (FirstPlayerScoreTimes == 2)
+            {
+                return "Thirty Love";
+            }
 
             return "Love all";
         }

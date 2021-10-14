@@ -4,35 +4,47 @@ namespace Tennis.Tests
 {
     public class TennisTests
     {
-        private readonly Tennis tennis = new Tennis();
+        private readonly Tennis _tennis = new Tennis();
 
         [Fact]
-        public void GetScore_NoOneScore_ReturnLoveAll()
+        public void GetScore_NoOneScore_ReturnsLoveAll()
         {
-            var score = tennis.GetScore();
+            var score = _tennis.GetScore();
 
             Assert.Equal("Love all", score);
         }
 
         [Fact]
-        public void GetScore_FirstPlayerScoreOnce_ReturnFifteenLove()
+        public void GetScore_FirstPlayerScoreOnce_ReturnsFifteenLove()
         {
-            tennis.FirstPlayerScore();
+            _tennis.FirstPlayerScore();
 
-            var score = tennis.GetScore();
+            var score = _tennis.GetScore();
 
             Assert.Equal("Fifteen Love", score);
         }
 
         [Fact]
-        public void GetScore_FirstPlayerScoreTwice_ReturnThirtyLove()
+        public void GetScore_FirstPlayerScoreTwice_ReturnsThirtyLove()
         {
-            tennis.FirstPlayerScore();
-            tennis.FirstPlayerScore();
+            _tennis.FirstPlayerScore();
+            _tennis.FirstPlayerScore();
 
-            var score = tennis.GetScore();
+            var score = _tennis.GetScore();
 
             Assert.Equal("Thirty Love", score);
+        }
+
+        [Fact]
+        public void GetScore_FirstPlayerScoreThrice_ReturnsFortyLove()
+        {
+            _tennis.FirstPlayerScore();
+            _tennis.FirstPlayerScore();
+            _tennis.FirstPlayerScore();
+
+            var score = _tennis.GetScore();
+
+            Assert.Equal("Forty Love", score);
         }
     }
 }

@@ -11,7 +11,8 @@ namespace Tennis
         private readonly Dictionary<int, string> _scoreName = new Dictionary<int, string>
         {
             {1, "Fifteen"},
-            {2, "Thirty"}
+            {2, "Thirty"},
+            {3, "Forty"},
         };
 
         public Tennis()

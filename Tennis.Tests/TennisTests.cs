@@ -17,7 +17,7 @@ namespace Tennis.Tests
         [Fact]
         public void GetScore_FirstPlayerScoreOnce_ReturnsFifteenLove()
         {
-            _tennis.FirstPlayerScore();
+            FirstPlayerScoreTimes(1);
 
             var score = _tennis.GetScore();
 
@@ -27,8 +27,7 @@ namespace Tennis.Tests
         [Fact]
         public void GetScore_FirstPlayerScoreTwice_ReturnsThirtyLove()
         {
-            _tennis.FirstPlayerScore();
-            _tennis.FirstPlayerScore();
+            FirstPlayerScoreTimes(2);
 
             var score = _tennis.GetScore();
 
@@ -38,13 +37,19 @@ namespace Tennis.Tests
         [Fact]
         public void GetScore_FirstPlayerScoreThrice_ReturnsFortyLove()
         {
-            _tennis.FirstPlayerScore();
-            _tennis.FirstPlayerScore();
-            _tennis.FirstPlayerScore();
+            FirstPlayerScoreTimes(3);
 
             var score = _tennis.GetScore();
 
             Assert.Equal("Forty Love", score);
+        }
+
+        private void FirstPlayerScoreTimes(int times)
+        {
+            for (var i = 0; i < times; i++)
+            {
+                _tennis.FirstPlayerScore();
+            }
         }
     }
 }

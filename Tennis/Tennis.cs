@@ -8,6 +8,12 @@ namespace Tennis
     {
         private int FirstPlayerScoreTimes { get; set; }
 
+        private readonly Dictionary<int, string> _scoreName = new Dictionary<int, string>
+        {
+            {1, "Fifteen"},
+            {2, "Thirty"}
+        };
+
         public Tennis()
         {
             FirstPlayerScoreTimes = 0;
@@ -15,13 +21,9 @@ namespace Tennis
 
         public string GetScore()
         {
-            if (FirstPlayerScoreTimes == 1)
+            if (FirstPlayerScoreTimes > 0)
             {
-                return "Fifteen Love";
-            }
-            else if (FirstPlayerScoreTimes == 2)
-            {
-                return "Thirty Love";
+                return $"{_scoreName[FirstPlayerScoreTimes]} Love";
             }
 
             return "Love all";
